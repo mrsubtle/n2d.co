@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   require('jit-grunt')(grunt);
 
   grunt.initConfig({
-  	pkg: grunt.file.readJSON('package.json'),
+    pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
@@ -41,21 +41,21 @@ module.exports = function(grunt) {
       }
     },
     copy: {
-    	main: {
-    		files: [
-    			//copy root HTML
-    			{ expand: true, cwd: '_working/', src: ['*.html'], dest: '_build/'},
-    			//copy images
-    			{ expand: true, cwd: '_working/img/', src: ['**'], dest: '_build/img/'},
-    			//copy js/lib
-    			{ expand: true, cwd: '_working/js/lib/', src: ['**'], dest: '_build/js/lib/'},
-    			//copy fonts
-    			{ expand: true, cwd: '_working/fonts/', src: ['**'], dest: '_build/fonts/'}
-    		]
-    	}
+      main: {
+        files: [
+          //copy root HTML
+          { expand: true, cwd: '_working/', src: ['*.html'], dest: '_build/'},
+          //copy images
+          { expand: true, cwd: '_working/img/', src: ['**'], dest: '_build/img/'},
+          //copy js/lib
+          { expand: true, cwd: '_working/js/lib/', src: ['**'], dest: '_build/js/lib/'},
+          //copy fonts
+          { expand: true, cwd: '_working/fonts/', src: ['**'], dest: '_build/fonts/'}
+        ]
+      }
     },
     "http-server": {
-		'dev': {
+    'dev': {
  
             // the server root directory 
             root: '_build/',
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
             // the server port 
             // can also be written as a function, e.g. 
             // port: function() { return 8282; } 
-            port: 8001,
+            port: 8002,
             
             // the host ip address 
             // If specified to, for example, "127.0.0.1" the server will  
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
             runInBackground: false
  
         }
-	},
+  },
     watch: {
       styles: {
         files: ['_working/img/*', '_working/css/**/*.less', '_working/**/*.css', '_working/**/*.js', '_working/**/*.html'], // which files to watch
@@ -105,5 +105,5 @@ module.exports = function(grunt) {
   //grunt.registerTask('test', ['jshint']);
 
   grunt.registerTask('default', ['uglify', 'copy', 'less', 'watch']);
-  //grunt.registerTask('server', ['web_server']);
+  grunt.registerTask('server', ['http-server']);
 };
