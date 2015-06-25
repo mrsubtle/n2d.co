@@ -6,14 +6,129 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="units-row">
-		<div class="unit-centered unit-90">
-			<div class="units-row">
-				<div class="unit-50">one</div>
-				<div class="unit-50">two</div>
+	
+<section class="hero">
+	<div class="brand">
+		NO2DESIGNCO.
+	</div>
+	<div class="heroText">
+		<div class="main">
+			Product Strategy &amp; Design
+		</div>
+		<div class="sub">
+			We love working with startups to build out core ideas, amazing experiences, habitual usage, and roadmap future growth.
+		</div>
+		<div class="action">
+			<div class="c2a">
+				Book us today
 			</div>
 		</div>
 	</div>
-	<script src="js/core.min.js"></script>
+	<img id="pencil" src="img/pencil-no2-short.svg" alt="NO2DESIGNCO." title="We grew up sketching all our lives.  Our favourite pencils?  No. 2 HB - awwwww yeah.">
+</section>
+<section id="vision" class="g05">
+	<div class="textBlock">
+		<div class="c2a">
+			Focus your product's vision
+		</div>
+	</div>
+</section>
+<section id="experiences" class="">
+	<div class="textBlock">
+		<div class="c2a">
+			Create engaging experiences
+		</div>
+	</div>
+</section>
+<section id="research" class="g05">
+	<div class="textBlock">
+		<div class="c2a">
+			Grow habits through research
+		</div>
+	</div>
+</section>
+<section id="future" class="">
+	<div class="textBlock">
+		<div class="c2a">
+			Shine a light on the future
+		</div>
+	</div>
+</section>
+<footer>
+	footer
+</footer>
+
+
+<script src="js/lib/jquery-2.1.4.min.js"></script>
+<script src="js/lib/jquery.color-2.1.2.min.js"></script>
+<script src="js/lib/jquery.vide.js"></script>
+<script src="js/core.min.js"></script>
+<script type="text/javascript">
+	function rainbow() {
+		// 30 random hues with step of 12 degrees
+		var hue = Math.floor(Math.random() * 30) * 12;
+
+		return $.Color({
+			hue: hue,
+			saturation: 0.9,
+			lightness: 0.6,
+			alpha: 1
+		});
+	};
+
+	$(function(){
+		//DOM is ready, so do stuff
+
+		//video inits
+		$('section#vision').vide('img/motion/vision');
+		$('section#experiences').vide('img/motion/experiences');
+		$('section#research').vide('img/motion/research');
+		$('section#future').vide('img/motion/future');
+
+		var videVision = $('section#vision').data('vide');
+		var videVisionVideo = videVision.getVideoObject();
+		videVisionVideo.pause();
+		$('section#vision').on('mouseover',function(){
+			videVisionVideo.play();
+		});
+		$('section#vision').on('mouseout',function(){
+			videVisionVideo.pause();
+		});
+
+		var videExperiences = $('section#experiences').data('vide');
+		var videExperiencesVideo = videExperiences.getVideoObject();
+		videExperiencesVideo.pause();
+		$('section#experiences').on('mouseover',function(){
+			videExperiencesVideo.play();
+		});
+		$('section#experiences').on('mouseout',function(){
+			videExperiencesVideo.pause();
+		});
+
+		var videResearch = $('section#research').data('vide');
+		var videResearchVideo = videResearch.getVideoObject();
+		videResearchVideo.pause();
+		$('section#research').on('mouseover',function(){
+			videResearchVideo.play();
+		});
+		$('section#research').on('mouseout',function(){
+			videResearchVideo.pause();
+		});
+
+		var videFuture = $('section#future').data('vide');
+		var videFutureVideo = videFuture.getVideoObject();
+		videFutureVideo.pause();
+		$('section#future').on('mouseover',function(){
+			videFutureVideo.play();
+		});
+		$('section#future').on('mouseout',function(){
+			videFutureVideo.pause();
+		});
+
+
+	});
+
+</script>
+
 </body>
 </html>
